@@ -24,12 +24,56 @@ html {
 
   body {
     background: #370617;
+    cursor: none;
+    overflow: hidden;
   }
+
+  #cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: #f48c06;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+  }
+
+  #glow-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(244, 140, 6, 0.11) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(24px);
+  }
+
   h1 {
     color: #f48c06;
     font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
     font-weight: normal;
+    font-size: clamp(64px, 14vw, 200px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    cursor: none;
+    user-select: none;
   }
+
+  .char {
+    display: inline-block;
+    will-change: transform;
+  }
+
   #container {
     width: 100%;
     display: flex;
